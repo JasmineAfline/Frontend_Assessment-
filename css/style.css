@@ -28,6 +28,19 @@ body {
     padding: 0 15px;
 }
 
+main, section {
+    position: relative;
+}
+
+/* Semantic sections */
+.profile-section,
+.stats-section,
+.cta-section,
+.membership-section,
+.footer-section {
+    width: 100%;
+}
+
 /* 3. Card Base Styles */
 .card-dark {
     background-color: var(--dark-grey) !important;
@@ -68,6 +81,10 @@ body {
     border: none;
 }
 
+.stat-card .card-body {
+    padding: 0;
+}
+
 .stat-card:hover {
     transform: translateY(-5px);
 }
@@ -91,6 +108,15 @@ body {
 .fw-bold { font-weight: 700 !important; }
 
 /* 6. Memberships & Interactivity */
+.membership-item {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.membership-item:hover {
+    transform: translateY(-3px);
+}
+
 .membership-header {
     padding: 12px 15px;
     color: white;
@@ -129,7 +155,8 @@ body {
         max-width: 100%;
         padding: 0 10px;
     }
-    .card-dark.p-3 { padding: 15px !important; }
+    .card-dark.p-3,
+    .card-dark .card-body.p-3 { padding: 15px !important; }
     .card-dark h6 { font-size: 0.95rem; }
     .card-dark .small-text { font-size: 0.85rem; }
     .profile-img { width: 70px; height: 70px; }
@@ -148,7 +175,8 @@ body {
         max-width: 100%;
         padding: 0 12px;
     }
-    .card-dark.p-3 { padding: 18px !important; }
+    .card-dark.p-3,
+    .card-dark .card-body.p-3 { padding: 18px !important; }
     .profile-img { width: 75px; height: 75px; }
     .stat-card {
         padding: 10px;
@@ -156,13 +184,29 @@ body {
     }
     .stat-card h3 { font-size: 1.4rem; }
     .tiny-text { font-size: 0.68rem; }
+    
+    /* Stats card grid: 2 columns on small phones */
+    .stats-section .row {
+        --bs-gutter-x: 0.5rem;
+    }
 }
 
-/* Tablets & larger (≥768px) */
+/* Medium devices / tablets (≥768px) */
 @media (min-width: 768px) {
     .main-app-wrapper {
         max-width: 500px;
         padding: 0 20px;
     }
-    .stat-card { min-height: 120px; }
+    .stat-card { 
+        min-height: 120px;
+        padding: 12px;
+    }
+    .stat-card h3 { font-size: 1.5rem; }
+}
+
+/* Large devices (≥992px) */
+@media (min-width: 992px) {
+    .main-app-wrapper {
+        max-width: 600px;
+    }
 }

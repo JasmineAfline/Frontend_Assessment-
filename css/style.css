@@ -1,0 +1,168 @@
+/* 1. Variables & Reset */
+:root {
+    --dark-grey: #414141;
+    --content-grey: #525252;
+    --gold: #c5a02a;
+    --blue-grey: #7a8ba1;
+    --soft-pink: #f8d7da;
+    --soft-lime: #dcf2d1;
+    --soft-tan: #f9eeb3;
+    --soft-rose: #fbcfe8;
+}
+
+*, *::before, *::after { 
+    box-sizing: border-box; 
+}
+
+body {
+    background-color: #f4f4f4;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    padding: 20px 0;
+    margin: 0;
+}
+
+/* 2. Layout Containers */
+.main-app-wrapper {
+    max-width: 400px; 
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* 3. Card Base Styles */
+.card-dark {
+    background-color: var(--dark-grey) !important;
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.card-dark.p-3 {
+    padding: 25px !important;
+}
+
+.card-dark h6 {
+    font-size: 1.1rem;
+}
+
+.card-dark .small-text {
+    font-size: 0.95rem;
+}
+
+.profile-img {
+    width: 85px;
+    height: 85px;
+    border: 3px solid #666;
+    object-fit: cover;
+}
+
+/* 4. Stats Grid */
+.stat-card {
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    min-height: 110px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    border: none;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-card img {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+}
+
+/* Grid Background Colors */
+.bg-soft-pink { background-color: var(--soft-pink); }
+.bg-soft-lime { background-color: var(--soft-lime); }
+.bg-soft-tan  { background-color: var(--soft-tan); }
+.bg-soft-rose { background-color: var(--soft-rose); }
+
+/* 5. Typography */
+.text-gold { color: var(--gold) !important; }
+.small-text { font-size: 0.85rem; }
+.tiny-text { font-size: 0.72rem; line-height: 1.4; }
+.fw-bold { font-weight: 700 !important; }
+
+/* 6. Memberships & Interactivity */
+.membership-header {
+    padding: 12px 15px;
+    color: white;
+    font-weight: bold;
+    font-size: 0.85rem;
+    cursor: pointer;
+    border-radius: 10px 10px 0 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.bg-gold { background-color: var(--gold); }
+.bg-blue-grey { background-color: var(--blue-grey); }
+
+.membership-content {
+    background-color: var(--content-grey);
+    color: #dfdfdf;
+    padding: 15px;
+    font-size: 0.78rem;
+    display: none; /* Managed by JS */
+    border-radius: 0 0 10px 10px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Ensure JS .d-none works if you use classList.toggle */
+.d-none {
+    display: none !important;
+}
+
+/* 7. Responsivity */
+
+/* Extra small phones (≤360px) */
+@media (max-width: 360px) {
+    body { padding: 12px 0; }
+    .main-app-wrapper {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+    .card-dark.p-3 { padding: 15px !important; }
+    .card-dark h6 { font-size: 0.95rem; }
+    .card-dark .small-text { font-size: 0.85rem; }
+    .profile-img { width: 70px; height: 70px; }
+    .stat-card {
+        padding: 8px;
+        min-height: 80px;
+    }
+    .stat-card h3 { font-size: 1.3rem; }
+    .tiny-text { font-size: 0.65rem; }
+    .membership-header { padding: 10px 12px; font-size: 0.78rem; }
+}
+
+/* Small phones (361px - 420px) */
+@media (max-width: 420px) {
+    .main-app-wrapper {
+        max-width: 100%;
+        padding: 0 12px;
+    }
+    .card-dark.p-3 { padding: 18px !important; }
+    .profile-img { width: 75px; height: 75px; }
+    .stat-card {
+        padding: 10px;
+        min-height: 90px;
+    }
+    .stat-card h3 { font-size: 1.4rem; }
+    .tiny-text { font-size: 0.68rem; }
+}
+
+/* Tablets & larger (≥768px) */
+@media (min-width: 768px) {
+    .main-app-wrapper {
+        max-width: 500px;
+        padding: 0 20px;
+    }
+    .stat-card { min-height: 120px; }
+}

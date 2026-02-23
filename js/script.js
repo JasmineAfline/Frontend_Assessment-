@@ -1,9 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-    
-    // ============================================
-    // MEMBERSHIP TOGGLE FUNCTIONALITY
-    // ============================================
-    
     const membershipItems = document.querySelectorAll(".membership-item");
     
     membershipItems.forEach(item => {
@@ -16,10 +11,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 toggleMembership(item, content);
             });
             
-            // Also allow clicking the item itself
             item.addEventListener("click", function(e) {
                 if (e.target === header || header.contains(e.target)) {
-                    return; // Already handled by header click
+                    return;
                 }
                 toggleMembership(item, content);
             });
@@ -29,7 +23,6 @@ document.addEventListener("DOMContentLoaded", function () {
     function toggleMembership(item, contentEl) {
         const isHidden = contentEl.classList.contains("d-none");
         
-        // Close all other membership items
         membershipItems.forEach(other => {
             if (other !== item) {
                 const otherContent = other.querySelector(".membership-content");
@@ -40,11 +33,9 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
         
-        // Toggle current item
         if (isHidden) {
             contentEl.classList.remove("d-none");
             item.classList.add("active");
-            // Smooth scroll to content on mobile
             if (window.innerWidth < 768) {
                 setTimeout(() => {
                     item.scrollIntoView({ behavior: "smooth", block: "nearest" });
@@ -56,17 +47,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // ============================================
-    // FORM VALIDATION (if form exists)
-    // ============================================
-    
+
     const joinForm = document.getElementById("joinForm");
     if (joinForm) {
         joinForm.addEventListener("submit", function(e) {
             e.preventDefault();
             
             if (validateForm(this)) {
-                // Form is valid
                 const name = document.getElementById("name").value.trim();
                 const email = document.getElementById("email").value.trim();
                 
@@ -77,7 +64,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
         
-        // Real-time validation on input
         const formInputs = joinForm.querySelectorAll("input[required], textarea[required], select[required]");
         formInputs.forEach(input => {
             input.addEventListener("blur", function() {
@@ -109,12 +95,10 @@ document.addEventListener("DOMContentLoaded", function () {
         const value = field.value.trim();
         let errorMsg = "";
         
-        // Check if field is empty
         if (value === "") {
             errorMsg = "This field is required.";
             isValid = false;
         }
-        // Email validation
         else if (field.type === "email") {
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(value)) {
@@ -122,13 +106,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 isValid = false;
             }
         }
-        // Min length for text fields
         else if (field.type === "text" && value.length < 2) {
             errorMsg = "Please enter at least 2 characters.";
             isValid = false;
         }
         
-        // Update field UI
         if (!isValid) {
             field.classList.add("is-invalid");
             showFieldError(field, errorMsg);
@@ -166,10 +148,6 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
     }
-    
-    // ============================================
-    // KEYBOARD ACCESSIBILITY
-    // ============================================
     
     membershipItems.forEach(item => {
         const header = item.querySelector(".membership-header");

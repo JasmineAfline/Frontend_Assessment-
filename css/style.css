@@ -1,4 +1,3 @@
-/* 1. Variables & Reset */
 :root {
     --dark-grey: #414141;
     --content-grey: #525252;
@@ -22,7 +21,6 @@ body {
     line-height: 1.5;
 }
 
-/* 2. Layout Containers */
 .main-app-wrapper {
     max-width: 400px; 
     margin: 0 auto;
@@ -33,7 +31,6 @@ main, section {
     position: relative;
 }
 
-/* Semantic sections */
 .profile-section,
 .stats-section,
 .cta-section,
@@ -42,7 +39,6 @@ main, section {
     width: 100%;
 }
 
-/* 3. Card Base Styles */
 .card-dark {
     background-color: var(--dark-grey) !important;
     border-radius: 15px;
@@ -86,7 +82,6 @@ main, section {
     flex-shrink: 0;
 }
 
-/* 4. Stats Grid */
 .stat-card {
     border-radius: 15px;
     padding: 15px;
@@ -125,13 +120,11 @@ main, section {
     flex-shrink: 0;
 }
 
-/* Grid Background Colors */
 .bg-soft-pink { background-color: var(--soft-pink); }
 .bg-soft-lime { background-color: var(--soft-lime); }
 .bg-soft-tan  { background-color: var(--soft-tan); }
 .bg-soft-rose { background-color: var(--soft-rose); }
 
-/* 5. Typography */
 .text-gold { color: var(--gold) !important; }
 small, .small-text { 
     font-size: 0.875rem;
@@ -144,15 +137,9 @@ small, .small-text {
 }
 .fw-bold { font-weight: 700 !important; }
 
-h6 { 
-    margin-bottom: 0.5rem; 
-}
+h6 { margin-bottom: 0.5rem; }
+p { margin-bottom: 0.75rem; }
 
-p {
-    margin-bottom: 0.75rem;
-}
-
-/* 6. Memberships & Interactivity */
 .membership-item {
     cursor: pointer;
     transition: all 0.25s ease;
@@ -191,20 +178,13 @@ p {
     padding: 16px 18px;
     font-size: 0.8rem;
     line-height: 1.6;
-    display: none; /* Managed by JS */
+    display: none;
     border-radius: 0 0 10px 10px;
     border-top: 1px solid rgba(255,255,255,0.1);
     transition: all 0.2s ease;
 }
 
-/* Ensure JS .d-none works if you use classList.toggle */
-.d-none {
-    display: none !important;
-}
-
-/* ============================================ */
-/* FORM VALIDATION STYLES */
-/* ============================================ */
+.d-none { display: none !important; }
 
 .form-control,
 .form-select {
@@ -251,9 +231,6 @@ p {
     }
 }
 
-/* 7. Responsivity */
-
-/* Extra small phones (≤360px) */
 @media (max-width: 360px) {
     body { 
         padding: 12px 0; 
@@ -308,7 +285,7 @@ p {
     }
 }
 
-/* Small phones (361px - 420px) */
+
 @media (max-width: 420px) and (min-width: 361px) {
     body {
         font-size: 14px;
@@ -343,7 +320,6 @@ p {
     }
 }
 
-/* Medium phones/small tablets (421px - 767px) */
 @media (min-width: 421px) and (max-width: 767px) {
     .main-app-wrapper {
         max-width: 95%;
@@ -357,7 +333,6 @@ p {
     }
 }
 
-/* Tablets & larger (≥768px) */
 @media (min-width: 768px) {
     body {
         padding: 24px 0;
@@ -394,7 +369,6 @@ p {
     }
 }
 
-/* Large devices (≥992px) */
 @media (min-width: 992px) {
     .main-app-wrapper {
         max-width: 600px;
